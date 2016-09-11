@@ -1,0 +1,1 @@
+raspivid -t 0 -hf -w 640 -h 360 -fps 30 -b 700000 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=1 ! udpsink host=224.1.1.1 port=9000
